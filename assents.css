@@ -1,0 +1,92 @@
+h1 {
+    font-size: 35%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+h2 {
+  font-size: 10%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: 0;
+    min-height: 100vh;
+    font-size: 20vmin;
+    gap: 0.25em;
+    background: #215292;
+  }
+  
+  .face {
+    --eyes: rgb(41, 31, 13);
+    --skin: #eac5a1;
+    --shade-light: #ff000007;
+    --shade: #f001;
+    --shade-dark: #ff000018;
+    --shade-darker: #f002;
+    appearance: none;
+    position: relative;
+    font-size: 1em;
+    box-sizing: content-box;
+    height: 1em;
+    width: 2.25em;
+    border: 1px solid transparent;
+
+    background-repeat: no-repeat;
+    background-clip: content-box;
+    
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 23%;
+      width: 0.66em;
+      height: 0.6em;
+      transform: translate(-50%,-50%);
+      border-radius: 50%;
+      border-top: 0.05em solid;
+      border-bottom: 0.00em solid;
+      transition: height 0.3s, border 0.3s;
+      
+      background: 
+        radial-gradient(0.05em 0.05em at 40% calc(52% - 0.075em), #fffc 99%, #0000),
+        radial-gradient(0.22em 0.22em at 50% 52%, #000 40%, var(--eyes) 0 99%, #0000),
+        #fff;
+    }
+    
+    &::after {
+      left: 77%;
+      height: 0;
+      border-top: 0.02em solid;
+      border-bottom: 0.01em solid;
+      outline: none;
+    }
+    
+    &:checked {
+      &::before {
+        height: 0;
+        border-top: 0.02em solid;
+        border-bottom: 0.01em solid;
+        outline: none;
+      }
+      
+      &::after {
+        height: 0.6em;
+        border-top: 0.05em solid;
+        border-bottom: 0.0em solid;
+        outline: 2px solid #0000;
+      }
+    }
+    
+    &[disabled] {
+      opacity: 0.25;
+    }
+  }
+  
